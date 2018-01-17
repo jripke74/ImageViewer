@@ -35,6 +35,14 @@ final class PhotoListController: UIViewController {
     @IBAction func launchCamera(_ sender: Any) {
         photoPickerManager.presentPhotoPicker(animated: true)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showPhoto" {
+            if let cell = sender as? UICollectionViewCell, let indexPath = photosCollectionView.indexPath(for: cell), let pageViewController = segue.destination as? PhotoPageController {
+                pageViewController.photo = dataSource.photos[indexPath.row]
+            }
+        }
+    }
 }
 
 extension PhotoListController: PhotoPickerManagerDelegate {

@@ -12,4 +12,10 @@ class PhotoViewerController: UIViewController {
     
     @IBOutlet weak var photoImageView: UIImageView!
     
+    var photo: Photo!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        photoImageView.image = photo.image
+    }
 }
