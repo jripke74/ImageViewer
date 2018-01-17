@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -50,6 +51,7 @@
                                                 </constraints>
                                                 <connections>
                                                     <outlet property="photoView" destination="MVa-zC-hyT" id="pqr-aS-vV9"/>
+                                                    <segue destination="OI2-SR-rhL" kind="show" identifier="showPhoto" id="nXg-cb-h5z"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
@@ -96,6 +98,45 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="265" y="132"/>
+        </scene>
+        <!--Photo Page Controller-->
+        <scene sceneID="Wb7-wY-K9J">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="OI2-SR-rhL" customClass="PhotoPageController" customModule="ImageViewer" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q30-kH-3vE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="988" y="132"/>
+        </scene>
+        <!--Photo Viewer Controller-->
+        <scene sceneID="26u-zY-6rw">
+            <objects>
+                <viewController storyboardIdentifier="PhotoViewerController" id="Z3C-k6-hXe" customClass="PhotoViewerController" customModule="ImageViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ga1-uQ-X6p">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mYC-iM-QI0">
+                                <rect key="frame" x="0.0" y="265.33333333333337" width="375" height="281.33333333333337"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="mYC-iM-QI0" secondAttribute="height" multiplier="4:3" id="rLY-Ls-Nzd"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="mYC-iM-QI0" secondAttribute="trailing" id="IH9-sZ-QYy"/>
+                            <constraint firstItem="mYC-iM-QI0" firstAttribute="leading" secondItem="Ga1-uQ-X6p" secondAttribute="leading" id="hfj-c3-paO"/>
+                            <constraint firstItem="mYC-iM-QI0" firstAttribute="centerY" secondItem="Ga1-uQ-X6p" secondAttribute="centerY" id="j2t-L7-PDl"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="c9h-to-4yQ"/>
+                    </view>
+                    <connections>
+                        <outlet property="photoImageView" destination="mYC-iM-QI0" id="17T-6K-yyb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ftG-lr-2Y6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1734" y="132"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="CWY-Rs-SNv">
