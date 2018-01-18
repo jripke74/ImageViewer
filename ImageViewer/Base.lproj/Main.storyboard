@@ -102,7 +102,7 @@
         <!--Photo Page Controller-->
         <scene sceneID="Wb7-wY-K9J">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="OI2-SR-rhL" customClass="PhotoPageController" customModule="ImageViewer" customModuleProvider="target" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="OI2-SR-rhL" customClass="PhotoPageController" customModule="ImageViewer" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q30-kH-3vE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="988" y="132"/>
@@ -115,11 +115,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mYC-iM-QI0">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mYC-iM-QI0">
                                 <rect key="frame" x="0.0" y="265.33333333333337" width="375" height="281.33333333333337"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="mYC-iM-QI0" secondAttribute="height" multiplier="4:3" id="rLY-Ls-Nzd"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="5KR-uA-GBH" appends="YES" id="TUX-Mo-SJG"/>
+                                </connections>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -135,8 +139,59 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ftG-lr-2Y6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="5KR-uA-GBH">
+                    <connections>
+                        <action selector="launchPhotoZoomController:" destination="Z3C-k6-hXe" id="f20-X9-B3K"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1734" y="132"/>
+        </scene>
+        <!--Photo Zoom Controller-->
+        <scene sceneID="jZG-C1-sII">
+            <objects>
+                <viewController storyboardIdentifier="PhotoZoomController" id="AgY-ev-nVM" customClass="PhotoZoomController" customModule="ImageViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WSL-q1-nMi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sSh-rn-JXO">
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Esp-EN-X2N">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="734"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Esp-EN-X2N" firstAttribute="leading" secondItem="sSh-rn-JXO" secondAttribute="leading" id="38p-x5-Pxc"/>
+                                    <constraint firstAttribute="bottom" secondItem="Esp-EN-X2N" secondAttribute="bottom" id="4RN-Mp-YhP"/>
+                                    <constraint firstItem="Esp-EN-X2N" firstAttribute="centerX" secondItem="sSh-rn-JXO" secondAttribute="centerX" placeholder="YES" id="9tu-Xc-vaJ"/>
+                                    <constraint firstItem="Esp-EN-X2N" firstAttribute="centerY" secondItem="sSh-rn-JXO" secondAttribute="centerY" placeholder="YES" id="U1e-sS-slX"/>
+                                    <constraint firstItem="Esp-EN-X2N" firstAttribute="top" secondItem="sSh-rn-JXO" secondAttribute="top" id="bq3-3F-SII"/>
+                                    <constraint firstAttribute="trailing" secondItem="Esp-EN-X2N" secondAttribute="trailing" id="gOj-3J-QPU"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="AgY-ev-nVM" id="jOy-1o-efL"/>
+                                </connections>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="RyF-md-Dcm" firstAttribute="bottom" secondItem="sSh-rn-JXO" secondAttribute="bottom" id="8Nk-Cx-TvP"/>
+                            <constraint firstAttribute="trailing" secondItem="sSh-rn-JXO" secondAttribute="trailing" id="r0w-5j-YgU"/>
+                            <constraint firstItem="sSh-rn-JXO" firstAttribute="leading" secondItem="WSL-q1-nMi" secondAttribute="leading" id="y2T-cl-DTv"/>
+                            <constraint firstItem="sSh-rn-JXO" firstAttribute="top" secondItem="RyF-md-Dcm" secondAttribute="top" id="ysv-5q-cXI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="RyF-md-Dcm"/>
+                    </view>
+                    <connections>
+                        <outlet property="photoImageView" destination="Esp-EN-X2N" id="EfF-IT-BYa"/>
+                        <outlet property="scrollView" destination="sSh-rn-JXO" id="qAD-5I-X8p"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N1m-gj-4jp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2426" y="132"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="CWY-Rs-SNv">

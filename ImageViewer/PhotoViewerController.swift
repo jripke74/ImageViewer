@@ -18,4 +18,11 @@ class PhotoViewerController: UIViewController {
         super.viewDidLoad()
         photoImageView.image = photo.image
     }
+    
+    @IBAction func launchPhotoZoomController(_ sender: Any) {
+        guard let storyboard = storyboard else { return }
+        let zoomController = storyboard.instantiateViewController(withIdentifier: String(describing: PhotoZoomController.self)) as! PhotoZoomController
+        zoomController.photo = photo
+        navigationController?.present(zoomController, animated: true, completion: nil)
+    }
 }

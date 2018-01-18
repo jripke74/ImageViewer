@@ -39,7 +39,8 @@ final class PhotoListController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showPhoto" {
             if let cell = sender as? UICollectionViewCell, let indexPath = photosCollectionView.indexPath(for: cell), let pageViewController = segue.destination as? PhotoPageController {
-                pageViewController.photo = dataSource.photos[indexPath.row]
+                pageViewController.photos = dataSource.photos
+                pageViewController.indexOfCurrentPhoto = indexPath.row
             }
         }
     }
