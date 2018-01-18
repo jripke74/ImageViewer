@@ -185,6 +185,10 @@
                         <viewLayoutGuide key="safeArea" id="RyF-md-Dcm"/>
                     </view>
                     <connections>
+                        <outlet property="imageViewBottomConstraint" destination="4RN-Mp-YhP" id="Mj7-qP-saF"/>
+                        <outlet property="imageViewLeadingConstraint" destination="38p-x5-Pxc" id="CrN-01-yzc"/>
+                        <outlet property="imageViewTopConstraint" destination="bq3-3F-SII" id="MtM-gg-JDl"/>
+                        <outlet property="imageViewTrailingConstraint" destination="gOj-3J-QPU" id="gMG-Ws-ft2"/>
                         <outlet property="photoImageView" destination="Esp-EN-X2N" id="EfF-IT-BYa"/>
                         <outlet property="scrollView" destination="sSh-rn-JXO" id="qAD-5I-X8p"/>
                     </connections>
