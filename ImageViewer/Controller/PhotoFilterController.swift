@@ -15,5 +15,8 @@ class PhotoFilterController: UIViewController {
     
     var photo: UIImage?
     
-
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        photoImageView.image = photo
+    }
 }

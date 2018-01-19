@@ -99,6 +99,64 @@
             </objects>
             <point key="canvasLocation" x="265" y="132"/>
         </scene>
+        <!--Photo Filter Controller-->
+        <scene sceneID="cdI-lg-VIB">
+            <objects>
+                <viewController storyboardIdentifier="PhotoFilterController" id="dZK-rz-ah7" customClass="PhotoFilterController" customModule="ImageViewer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="egM-FH-h8G">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="GwL-UN-son">
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mdY-us-yGi">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="534"/>
+                                    </imageView>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eTP-BC-YtX">
+                                        <rect key="frame" x="0.0" y="534" width="375" height="200"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="yxA-J6-vcP"/>
+                                        </constraints>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Q1q-d8-PeH">
+                                            <size key="itemSize" width="100" height="100"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="h5P-IJ-BEP">
+                                                <rect key="frame" x="0.0" y="50" width="100" height="100"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </view>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="GwL-UN-son" firstAttribute="bottom" secondItem="Hhc-hp-LgX" secondAttribute="bottom" id="GtE-IV-qGZ"/>
+                            <constraint firstItem="GwL-UN-son" firstAttribute="top" secondItem="Hhc-hp-LgX" secondAttribute="top" id="K2H-wa-JV5"/>
+                            <constraint firstItem="GwL-UN-son" firstAttribute="leading" secondItem="Hhc-hp-LgX" secondAttribute="leading" id="hIX-Pg-anR"/>
+                            <constraint firstItem="GwL-UN-son" firstAttribute="trailing" secondItem="Hhc-hp-LgX" secondAttribute="trailing" id="mcW-Ke-5Df"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Hhc-hp-LgX"/>
+                    </view>
+                    <connections>
+                        <outlet property="filtersCollectionView" destination="eTP-BC-YtX" id="wDM-rG-Xy5"/>
+                        <outlet property="photoImageView" destination="mdY-us-yGi" id="mSb-Y1-WJH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U4m-2a-lju" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="264.80000000000001" y="810.59113300492618"/>
+        </scene>
         <!--Photo Page Controller-->
         <scene sceneID="Wb7-wY-K9J">
             <objects>
