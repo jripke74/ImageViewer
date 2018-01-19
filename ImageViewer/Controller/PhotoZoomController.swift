@@ -37,7 +37,7 @@ class PhotoZoomController: UIViewController {
     }
     
     func updateZoomScale() {
-        scrollView.maximumZoomScale = minZoomScale
+        scrollView.minimumZoomScale = minZoomScale
         scrollView.zoomScale = minZoomScale
     }
     

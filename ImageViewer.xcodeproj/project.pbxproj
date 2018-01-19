@@ -11,6 +11,8 @@
 		8940CAC7200FC44800875751 /* PhotoViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8940CAC6200FC44800875751 /* PhotoViewerController.swift */; };
 		89C5B602200E757200C30E4C /* PhotoPickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C5B601200E757200C30E4C /* PhotoPickerManager.swift */; };
 		89C5B606200E8F8F00C30E4C /* Photo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C5B604200E8F8F00C30E4C /* Photo+CoreDataProperties.swift */; };
+		89E4E8E120124BBA00A57D06 /* FilteredImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E4E8E020124BBA00A57D06 /* FilteredImageCell.swift */; };
+		89E4E8E420124C6700A57D06 /* PhotoFilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E4E8E320124C6700A57D06 /* PhotoFilterController.swift */; };
 		89E992BA2011091700C12E5F /* PhotoZoomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E992B92011091700C12E5F /* PhotoZoomController.swift */; };
 		97C520811F7B3E1A005642A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C520801F7B3E1A005642A3 /* AppDelegate.swift */; };
 		97C520861F7B3E1A005642A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C520841F7B3E1A005642A3 /* Main.storyboard */; };
@@ -29,6 +31,8 @@
 		8940CAC6200FC44800875751 /* PhotoViewerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewerController.swift; sourceTree = "<group>"; };
 		89C5B601200E757200C30E4C /* PhotoPickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerManager.swift; sourceTree = "<group>"; };
 		89C5B604200E8F8F00C30E4C /* Photo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		89E4E8E020124BBA00A57D06 /* FilteredImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredImageCell.swift; sourceTree = "<group>"; };
+		89E4E8E320124C6700A57D06 /* PhotoFilterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoFilterController.swift; sourceTree = "<group>"; };
 		89E992B92011091700C12E5F /* PhotoZoomController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoZoomController.swift; sourceTree = "<group>"; };
 		97C5207D1F7B3E1A005642A3 /* ImageViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97C520801F7B3E1A005642A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +59,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8993B7302012476100F01A6B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				89C5B604200E8F8F00C30E4C /* Photo+CoreDataProperties.swift */,
+				97C520921F7B3E31005642A3 /* CoreDataStack.swift */,
+				97C520991F7B4020005642A3 /* ImageViewer.xcdatamodeld */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8993B7312012483600F01A6B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				97C520971F7B3FBD005642A3 /* PhotoCell.swift */,
+				89E4E8E020124BBA00A57D06 /* FilteredImageCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		89E4E8E220124C2400A57D06 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				89E4E8E320124C6700A57D06 /* PhotoFilterController.swift */,
+				8940CAC4200FC2EE00875751 /* PhotoPageController.swift */,
+				8940CAC6200FC44800875751 /* PhotoViewerController.swift */,
+				89E992B92011091700C12E5F /* PhotoZoomController.swift */,
+				97C5209E1F7B40D4005642A3 /* PhotosFetchedResultsController.swift */,
+				97C520951F7B3F60005642A3 /* PhotoListController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		89E4E8E5201259EA00A57D06 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				89C5B601200E757200C30E4C /* PhotoPickerManager.swift */,
+				97C520A01F7B40F8005642A3 /* PhotosDataSource.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		97C520741F7B3E1A005642A3 = {
 			isa = PBXGroup;
 			children = (
@@ -74,16 +119,15 @@
 		97C5207F1F7B3E1A005642A3 /* ImageViewer */ = {
 			isa = PBXGroup;
 			children = (
+				8993B7302012476100F01A6B /* Models */,
+				8993B7312012483600F01A6B /* Views */,
+				89E4E8E220124C2400A57D06 /* Controller */,
+				89E4E8E5201259EA00A57D06 /* Helpers */,
 				97C520941F7B3F46005642A3 /* Starter Files */,
 				97C520801F7B3E1A005642A3 /* AppDelegate.swift */,
-				97C520841F7B3E1A005642A3 /* Main.storyboard */,
 				97C520871F7B3E1A005642A3 /* Assets.xcassets */,
 				97C520891F7B3E1A005642A3 /* LaunchScreen.storyboard */,
 				97C5208C1F7B3E1A005642A3 /* Info.plist */,
-				89C5B601200E757200C30E4C /* PhotoPickerManager.swift */,
-				8940CAC4200FC2EE00875751 /* PhotoPageController.swift */,
-				8940CAC6200FC44800875751 /* PhotoViewerController.swift */,
-				89E992B92011091700C12E5F /* PhotoZoomController.swift */,
 			);
 			path = ImageViewer;
 			sourceTree = "<group>";
@@ -91,13 +135,7 @@
 		97C520941F7B3F46005642A3 /* Starter Files */ = {
 			isa = PBXGroup;
 			children = (
-				89C5B604200E8F8F00C30E4C /* Photo+CoreDataProperties.swift */,
-				97C520921F7B3E31005642A3 /* CoreDataStack.swift */,
-				97C520951F7B3F60005642A3 /* PhotoListController.swift */,
-				97C520971F7B3FBD005642A3 /* PhotoCell.swift */,
-				97C520991F7B4020005642A3 /* ImageViewer.xcdatamodeld */,
-				97C5209E1F7B40D4005642A3 /* PhotosFetchedResultsController.swift */,
-				97C520A01F7B40F8005642A3 /* PhotosDataSource.swift */,
+				97C520841F7B3E1A005642A3 /* Main.storyboard */,
 			);
 			path = "Starter Files";
 			sourceTree = "<group>";
@@ -174,6 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89E4E8E420124C6700A57D06 /* PhotoFilterController.swift in Sources */,
 				89C5B602200E757200C30E4C /* PhotoPickerManager.swift in Sources */,
 				97C520931F7B3E31005642A3 /* CoreDataStack.swift in Sources */,
 				97C5209B1F7B4020005642A3 /* ImageViewer.xcdatamodeld in Sources */,
@@ -182,6 +221,7 @@
 				97C520981F7B3FBD005642A3 /* PhotoCell.swift in Sources */,
 				97C5209F1F7B40D4005642A3 /* PhotosFetchedResultsController.swift in Sources */,
 				8940CAC5200FC2EE00875751 /* PhotoPageController.swift in Sources */,
+				89E4E8E120124BBA00A57D06 /* FilteredImageCell.swift in Sources */,
 				97C520961F7B3F60005642A3 /* PhotoListController.swift in Sources */,
 				97C520811F7B3E1A005642A3 /* AppDelegate.swift in Sources */,
 				89C5B606200E8F8F00C30E4C /* Photo+CoreDataProperties.swift in Sources */,
@@ -323,7 +363,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = R9E84DX62H;
+				DEVELOPMENT_TEAM = 997RL2KYD9;
 				INFOPLIST_FILE = ImageViewer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.teamtreehouse.ImageViewer;
@@ -338,7 +378,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = R9E84DX62H;
+				DEVELOPMENT_TEAM = 997RL2KYD9;
 				INFOPLIST_FILE = ImageViewer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.teamtreehouse.ImageViewer;

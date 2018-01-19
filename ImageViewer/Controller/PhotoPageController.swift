@@ -22,8 +22,7 @@ class PhotoPageController: UIPageViewController {
     }
     
     func photoViewerController(with photo: Photo) -> PhotoViewerController? {
-        guard let storyboard = storyboard,
-            let photoViewerController = storyboard.instantiateViewController(withIdentifier: "PhotoViewerController") as? PhotoViewerController else { return nil }
+        guard let storyboard = storyboard, let photoViewerController = storyboard.instantiateViewController(withIdentifier: "PhotoViewerController") as? PhotoViewerController else { return nil }
         photoViewerController.photo = photo
         return photoViewerController
     }
@@ -33,8 +32,7 @@ class PhotoPageController: UIPageViewController {
 extension PhotoPageController: UIPageViewControllerDataSource {
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        guard let photoVC = viewController as? PhotoViewerController,
-            let index = photos.index(of: photoVC.photo) else { return nil }
+        guard let photoVC = viewController as? PhotoViewerController, let index = photos.index(of: photoVC.photo) else { return nil }
         if index == photos.startIndex {
             return nil
         } else {
@@ -45,8 +43,7 @@ extension PhotoPageController: UIPageViewControllerDataSource {
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        guard let photoVC = viewController as? PhotoViewerController,
-            let index = photos.index(of: photoVC.photo) else { return nil }
+        guard let photoVC = viewController as? PhotoViewerController, let index = photos.index(of: photoVC.photo) else { return nil }
         if index == photos.index(before: photos.endIndex){
             return nil
         } else {
