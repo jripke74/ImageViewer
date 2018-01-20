@@ -13,9 +13,11 @@ class PhotoFilterController: UIViewController {
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var filtersCollectionView: UICollectionView!
     
-    private lazy var filteredImages: [UIImage] = {
+    var context: CIContext!
+    
+    private lazy var filteredImages: [CGImage] = {
         guard let image = self.photo else { return [] }
-        let filteredImageBuilder = FilteredImageBuilder(image: image)
+        let filteredImageBuilder = FilteredImageBuilder(image: image, context: self.context)
         return filteredImageBuilder.imageWithDefaultFilters()
     }()
     
@@ -37,7 +39,8 @@ extension PhotoFilterController: UICollectionViewDataSource {
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FilteredImageCell.reuseIdentifier, for: indexPath) as! FilteredImageCell
-        cell.imageView.image = filteredImages[indexPath.row]
+        let cgImage = filteredImages[indexPath.row]
+        cell.imageView.image = UIImage(cgImage: cgImage)
         return cell
     }
 }
